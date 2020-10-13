@@ -12,13 +12,14 @@ class HomeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
 
     @IBAction func onLogout(_ sender: Any) {
         TwitterAPICaller.client?.logout()
         self.dismiss(animated: true, completion: nil)
+        
+        // user not logged in anymore, so set userLoggedIn to false
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
     
     
